@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/ali-arkan/playwright-course#readme",
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.52.0",
     "@types/node": "^22.14.1"
   }
 }
