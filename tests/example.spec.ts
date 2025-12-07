@@ -31,6 +31,5 @@ Playwright is distributed as a set of Maven modules. The easiest way to use it i
   //get the started yakala ve tıkla
   await page.getByRole('button',{name: 'Get started'}).click(); //buradan devam et
   
-
  });
 
