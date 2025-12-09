@@ -66,39 +66,3 @@ Playwright is distributed as a set of Maven modules. The easiest way to use it i
 
 
 
- /*** AI Generated
-  * import { test, expect } from '@playwright/test';
-
-// test1: has title
-test('Home page has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-// test2: get started link
-test('Click Get Started and verify URL', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-  await page.getByRole('link', { name: /Get started/i }).click();
-  await expect(page).toHaveURL(/intro/);
-});
-
-// test3: Verify Java Page
-test('Java page checks', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Hover language dropdown
-  await page.getByRole('button', { name: /Language/i }).hover();
-
-  // Click Java
-  await page.getByRole('menuitem', { name: /Java/i }).click();
-
-  // Check URL contains "intro"
-  await expect(page).toHaveURL(/intro/);
-
-  // "Installing Playwright" should NOT be visible
-  await expect(page.locator('text=Installing Playwright')).not.toBeVisible();
-
-  // Check Java-specific text is displayed
-  await expect(page.locator('text=Playwright is distributed as a set of Maven modules.')).toBeVisible();
-});
-  */
