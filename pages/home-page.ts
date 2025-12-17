@@ -1,6 +1,7 @@
 // Playwright dan Locator ve Page tiplerini import ediyoruz
 // Page -> Tarayıcı sekmesi, Locator: bir HTML elementi
 import { type Locator, type Page, expect } from "@playwright/test";
+import { TopMenuPage } from "./top-menu-page";
 
 // HomePage adında bir sınıf oluşturuyoruz
 // Bu sınıf, sayfanın element ve metodlarını içerir
@@ -13,6 +14,8 @@ export class HomePage {
   readonly getStartedButton: Locator;
   // await expect(page).toHaveTitle(/.*Playwright/);
   readonly title: RegExp;
+  // TopMenuPage örneği
+  readonly topMenu: TopMenuPage;
 
   // Constructor → Bu class çağrıldığı anda otomatik çalışan bir fonksiyondur.
   // Parametre olarak testten gelen "pageHome" objesini alır.
@@ -23,6 +26,8 @@ export class HomePage {
     // Böylece testte tekrar locator yazmaya gerek kalmıyor.
     this.getStartedButton = pageHome.getByRole("link", { name: "Get started" });
     this.title = /Playwright/;
+    // TopMenuPage örneğini başlat
+    this.topMenu = new TopMenuPage(pageHome);
   }
 
   //methods
@@ -35,6 +40,15 @@ export class HomePage {
 
   async assertPageTitle() {
     await expect(this.pageHome).toHaveTitle(this.title);
+  }
+
+  // TopMenuPage fonksiyonlarını kullanmak için örnek bir method
+  async useTopMenu() {
+    await this.topMenu.hoverNode();
+    await this.topMenu.clickJava();
+    await this.topMenu.assertPageUrl(/intro/);
+    await this.topMenu.assertNodeDescriptionNotVisible();
+    await this.topMenu.assertJavaDescriptionVisible();
   }
 }
 
