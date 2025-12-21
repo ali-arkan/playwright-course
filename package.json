@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-   "scripts": {
+  "scripts": {
     "test:e2e": "npx playwright test tests/",
     "test:e2e:all": "npx playwright test tests --project=all-browsers-and-tests",
     "test:e2e:ci": "CI=1 npx playwright test --project=ci --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL",
@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/ali-arkan/playwright-course#readme",
   "devDependencies": {
+    "@applitools/eyes-playwright": "^1.42.3",
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.14.1"
+    "@types/node": "^22.14.1",
+    "dotenv": "^17.2.3"
   }
 }
